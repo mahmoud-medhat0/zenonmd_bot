@@ -1,3 +1,83 @@
+import fetch from 'node-fetch';
+import yts from 'yt-search';
+import ytdl from 'ytdl-core';
+import axios from 'axios';
+import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
+import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
+
+const handler = async (m, { command, usedPrefix, conn, args, text }) => {
+  if (command === 'شغل') {
+    if (!text) throw *❲ ❗ ❳ يرجي إدخال نص للبحث في يوتيوب .*\nمثال :\n> ➤  ${usedPrefix + command} القرآن الكريم\n> ➤  ${usedPrefix + command} https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p;
+
+    try {
+      const yt_play = await search(args.join(' '));
+      const dataMessage = *❲ نتيجة البحث عن : ${text} ❳*\n➤ العنوان : ${yt_play[0].title}\n➤ النشر : ${yt_play[0].ago}\n➤ الطول : ${secondString(yt_play[0].duration.seconds)}\n➤ الرابط : ${yt_play[0].url}\n➤ المشاهدات : ${MilesNumber(yt_play[0].views)}\n➤ الصانع : ${yt_play[0].author.name}\n➤ القناة : ${yt_play[0].author.url}.trim();
+
+      const iturl = yt_play[0].url;
+      const itimg = yt_play[0].thumbnail;
+      const messa = await prepareWAMessageMedia({ image: { url: itimg } }, { upload: conn.waUploadToServer });
+
+      let msg = generateWAMessageFromContent(m.chat, {
+        viewOnceMessage: {
+          message: {
+            interactiveMessage: {
+              body: { text: dataMessage },
+              footer: { text: ©️${global.wm}.trim() },
+              header: {
+                hasMediaAttachment: true,
+                imageMessage: messa.imageMessage,
+              },
+              nativeFlowMessage: {
+                buttons: [
+                  { name: 'quick_reply', buttonParamsJson: JSON.stringify({ display_text: 'صوتي', id: ${usedPrefix}mp3.1 ${iturl} }) },
+                  { name: 'quick_reply', buttonParamsJson: JSON.stringify({ display_text: 'ملف صوتي', id: ${usedPrefix}mp3.2 ${iturl} }) },
+                  { name: 'quick_reply', buttonParamsJson: JSON.stringify({ display_text: 'ريكورد', id: ${usedPrefix}mp3.3 ${iturl} }) },
+                  { name: 'quick_reply', buttonParamsJson: JSON.stringify({ display_text: 'فيديو', id: ${usedPrefix}mp4.1 ${iturl} }) },
+                  { name: 'quick_reply', buttonParamsJson: JSON.stringify({ display_text: 'ملف فيديو', id: ${usedPrefix}mp4.2 ${iturl} }) },
+                  { name: 'quick_reply', buttonParamsJson: JSON.stringify({ display_text: 'جيف', id: ${usedPrefix}mp4.3 ${iturl} }) },
+                ],
+                messageParamsJson: "",
+              },
+            },
+          },
+        },
+      }, { userJid: conn.user.jid, quoted: m });
+
+      await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
+
+    } catch {
+      throw *❲ ❗ ❳ حدث خطأ عند البحث في يوتيوب .*\nيرجي ادخال نص صحيح أو رابط مثال :\n> ➤  ${usedPrefix + command} القرآن الكريم\n> ➤  ${usedPrefix + command} https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p;
+    }
+
+  } else if (command.startsWith('mp3.')) {
+    try {
+      const q = '128kbps';
+      const v = text;
+      const yt = await youtubedl(v).catch(async () => await youtubedlv2(v));
+      const dl_url = await yt.audio[q].download();
+      const ttl = await yt.title;
+
+      if (command === 'mp3.1') {
+        await conn.sendMessage(m.chat, { audio: { url: dl_url }, mimetype: 'audio/mpeg', fileName: ${ttl}.mp3 }, { quoted: m });
+      } else if (command === 'mp3.2') {
+        await conn.sendMessage(m.chat, { document: { url: dl_url }, mimetype: 'audio/mpeg', fileName: ${ttl}.mp3 }, { quoted: m });
+      } else if (command === 'mp3.3') {
+        await conn.sendMessage(m.chat, { audio: { url: dl_url }, mimetype: 'audio/ogg; codecs=opus', ptt: true, fileName: ${ttl}.opus }, { quoted: m });
+      }
+
+    } catch (error) {
+      await handleFallback(command, text, m, conn);
+    }
+
+  } else if (command.startsWith('mp4.')) {
+    try {
+      const qu = '360';
+      const q = ${qu}p;
+      const v = text;
+      const yt = await youtubedl(v).catch(async () => await youtubedlv2(v));
+      const dl_url = await yt.video[q].download();
+      const ttl = await yt.title;
+      const size = await yt.video[q].
 fileSizeH;
 
       if (command === 'mp4.1') {
