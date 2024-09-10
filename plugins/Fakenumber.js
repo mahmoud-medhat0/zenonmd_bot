@@ -16,7 +16,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
 
     let menu = `╮────────────────────────╭ـ\n│مرحبا : ~@${m.sender.split("@")[0]}~\n╯────────────────────────╰ـ \n`;
 
-    let pp = 'https://telegra.ph/file/ba984d78fa802662438ee.jpg';
+    let pp = 'https://telegra.ph/file/32329ff221ac7bbb7ab7b.jpg';
 
     const cap = `${menu}\n╮────────────────────────╭ــ\n│ *أنا خدمة Fake Number Ai*\n│ خدمة قادرة على صنع الأرقام الوهمية.\n│[دولة] لعرض قائمة الدول.\n│[أرقام] لعرض قائمة الأرقام للدولة.\n│[رسائل] لعرض قائمة الرسائل للرقم \n│[كود] لنسخ كود الرسالة المحددة\n╯────────────────────────╰ـ`;
 
@@ -81,7 +81,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
     message: {
       interactiveMessage: {
         body: { text: caption },
-        footer: { text: '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇' },
+        footer: { text: 'Zenon-𝐵𝛩𝑇' },
         header: {
           hasMediaAttachment: true,
           imageMessage: media.imageMessage,
@@ -164,7 +164,7 @@ return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
     message: {
       interactiveMessage: {
         body: { text: caption },
-        footer: { text: '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇' },
+        footer: { text: 'Zenon-𝐵𝛩𝑇' },
         header: {
           hasMediaAttachment: true,
           imageMessage: media.imageMessage,
@@ -246,7 +246,7 @@ return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
     message: {
       interactiveMessage: {
         body: { text: caption },
-        footer: { text: '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇' },
+        footer: { text: 'Zenon-𝐵𝛩𝑇' },
         header: {
           hasMediaAttachment: true,
           imageMessage: media.imageMessage,
