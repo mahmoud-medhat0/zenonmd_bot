@@ -1,3 +1,12 @@
+/*
+╮────────────────────────╭ـ
+│ By : 𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔 🧞
+│ Number : https://wa.me/201145624848
+│ Community : https://chat.whatsapp.com/Hg4F5jQ9Z9r1lUH6I1jkhI
+│ Group Support : https://chat.whatsapp.com/JGtNRFwfHJC8XholdKmVGS
+│ Chanel : https://whatsapp.com/channel/0029Vael6wMJP20ze3IXJk0z
+╯────────────────────────╰ـ 
+*/
 
 import fetch from "node-fetch";
 import cheerio from "cheerio";
@@ -7,7 +16,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
 
     let menu = ╮────────────────────────╭ـ\n│مرحبا : ~@${m.sender.split("@")[0]}~\n╯────────────────────────╰ـ \n;
 
-    let pp = 'https://telegra.ph/file/32329ff221ac7bbb7ab7b.jpg';
+    let pp = 'https://telegra.ph/file/ba984d78fa802662438ee.jpg';
 
     const cap = ${menu}\n╮────────────────────────╭ــ\n│ *أنا خدمة Fake Number Ai*\n│ خدمة قادرة على صنع الأرقام الوهمية.\n│[دولة] لعرض قائمة الدول.\n│[أرقام] لعرض قائمة الأرقام للدولة.\n│[رسائل] لعرض قائمة الرسائل للرقم \n│[كود] لنسخ كود الرسالة المحددة\n╯────────────────────────╰ـ;
 
@@ -72,7 +81,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
     message: {
       interactiveMessage: {
         body: { text: caption },
-        footer: { text: 'Zenon-𝐵𝛩𝑇' },
+        footer: { text: '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇' },
         header: {
           hasMediaAttachment: true,
           imageMessage: media.imageMessage,
@@ -157,7 +166,7 @@ return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
     message: {
       interactiveMessage: {
         body: { text: caption },
-        footer: { text: 'Zenon-𝐵𝛩𝑇' },
+        footer: { text: '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇' },
         header: {
           hasMediaAttachment: true,
           imageMessage: media.imageMessage,
@@ -242,7 +251,7 @@ pull-right').text().trim();
     message: {
       interactiveMessage: {
         body: { text: caption },
-        footer: { text: 'Zenon-𝐵𝛩𝑇' },
+        footer: { text: '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇' },
         header: {
           hasMediaAttachment: true,
           imageMessage: media.imageMessage,
@@ -292,7 +301,7 @@ let code = additionalLink.split(" ")[1];
 
  const caption = ╮────────────────────────╭ـ\n│ *كود التحقق :*${additionalLink}\n╯────────────────────────╰ـ\n;
 
-conn.sendButton(m.chat, caption, 'Zenon-𝐵𝛩𝑇', pp, [['الرئيسية',`${usedPrefix + command}`]], null, null, m);
+conn.sendButton(m.chat, caption, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['الرئيسية',`${usedPrefix + command}`]], null, null, m);
     }
 };
 
