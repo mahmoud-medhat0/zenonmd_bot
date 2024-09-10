@@ -14,11 +14,11 @@ import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysoc
 
 let handler = async (m, { conn, text, command, usedPrefix }) => {
 
-    let menu = ╮────────────────────────╭ـ\n│مرحبا : ~@${m.sender.split("@")[0]}~\n╯────────────────────────╰ـ \n;
+    let menu = `╮────────────────────────╭ـ\n│مرحبا : ~@${m.sender.split("@")[0]}~\n╯────────────────────────╰ـ \n`;
 
     let pp = 'https://telegra.ph/file/ba984d78fa802662438ee.jpg';
 
-    const cap = ${menu}\n╮────────────────────────╭ــ\n│ *أنا خدمة Fake Number Ai*\n│ خدمة قادرة على صنع الأرقام الوهمية.\n│[دولة] لعرض قائمة الدول.\n│[أرقام] لعرض قائمة الأرقام للدولة.\n│[رسائل] لعرض قائمة الرسائل للرقم \n│[كود] لنسخ كود الرسالة المحددة\n╯────────────────────────╰ـ;
+    const cap = `${menu}\n╮────────────────────────╭ــ\n│ *أنا خدمة Fake Number Ai*\n│ خدمة قادرة على صنع الأرقام الوهمية.\n│[دولة] لعرض قائمة الدول.\n│[أرقام] لعرض قائمة الأرقام للدولة.\n│[رسائل] لعرض قائمة الرسائل للرقم \n│[كود] لنسخ كود الرسالة المحددة\n╯────────────────────────╰ـ`;
 
     let lister = ["دولة", "أرقام", "رسائل", "كود"];
 
@@ -58,7 +58,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
                         number = '';
                     }
 
-                    countryLinks.push({ name: name, number: number, shortLink: href, fullLink: ${link}${href} });
+                    countryLinks.push({ name: name, number: number, shortLink: href, fullLink: `${link}${href}` });
                 }
             });
             
@@ -67,8 +67,8 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
                 heager.push({
                     header: v.number,
                     title: v.name,
-                    id: ${usedPrefix + command} أرقام ${v.fullLink},
-                    description: قائمة أرقام دولة ${v.name}
+                    id: `${usedPrefix + command} أرقام ${v.fullLink}`,
+                    description: `قائمة أرقام دولة ${v.name}`
                 });
             }
 
@@ -103,15 +103,13 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
             },
             {
               name: 'quick_reply',
-              buttonParamsJson: {"display_text": "الرئيسية", "id": "${usedPrefix + command}"}
+              buttonParamsJson: `{"display_text": "الرئيسية", "id": "${usedPrefix + command}"}`
             }
           ],
           messageParamsJson: "",
         },
       },
-
-𝟬𝟴:𝟮𝟳 𓏺 mohamed elsony, [9/10/24 12:53 AM]
-},
+    },
   }
 }, { userJid: conn.user.jid, quoted: m });
 
@@ -120,7 +118,7 @@ return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
 
         } catch (error) {
             console.log(error);
-            return conn.sendButton(m.chat, ╮────────────────────────╭ـ\n│ حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا.\n╯────────────────────────╰ـ , '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['حاول مجددا',`${usedPrefix + command} دولة`]], null, null, m);
+            return conn.sendButton(m.chat, `╮────────────────────────╭ـ\n│ حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا.\n╯────────────────────────╰ـ `, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['حاول مجددا',`${usedPrefix + command} دولة`]], null, null, m);
         }
     } else if (feature === "أرقام") {
         if (!additionalLink) {
@@ -143,7 +141,7 @@ return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
                 const latestText = $(el).find('.info-box-time').text().trim();
 
                 if (href && numberText) {
-                    numberLinks.push({ number: numberText, shortLink: href, fullLink: ${link}${href}, latest: latestText });
+                    numberLinks.push({ number: numberText, shortLink: href, fullLink: `${link}${href}`, latest: latestText });
                 }
             });
 
@@ -152,8 +150,8 @@ return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
                 heager.push({
                     header: v.number,
                     title: v.number,
-                    id: ${usedPrefix + command} رسائل ${v.fullLink},
-                    description: قائمة رسائل الرقم ${v.number}
+                    id: `${usedPrefix + command} رسائل ${v.fullLink}`,
+                    description: `قائمة رسائل الرقم ${v.number}`
                 });
             }
 
@@ -188,7 +186,7 @@ return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
             },
             {
               name: 'quick_reply',
-              buttonParamsJson: {"display_text": "الرئيسية", "id": ".رقم"}
+              buttonParamsJson: `{"display_text": "الرئيسية", "id": ".رقم"}`
             }
           ],
           messageParamsJson: "",
@@ -203,7 +201,7 @@ return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
 
         } catch (error) {
             console.log(error);
-            return conn.sendButton(m.chat, ╮────────────────────────╭ـ\n│ حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا.\n╯────────────────────────╰ـ , '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['حاول مجددا',`${usedPrefix + command} أرقام ${additionalLink}`]], null, null, m);
+            return conn.sendButton(m.chat, `╮────────────────────────╭ـ\n│ حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا.\n╯────────────────────────╰ـ `, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['حاول مجددا',`${usedPrefix + command} أرقام ${additionalLink}`]], null, null, m);
         }
 
     } else if (feature === "رسائل") {
@@ -222,10 +220,7 @@ return await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
 
             let messages = [];
             $('.direct-chat-msg.left').each((i, el) => {
-                const from = $(el).find('.direct-chat-info span.
-
-𝟬𝟴:𝟮𝟳 𓏺 mohamed elsony, [9/10/24 12:53 AM]
-pull-right').text().trim();
+                const from = $(el).find('.direct-chat-info span.pull-right').text().trim();
                 const time = $(el).find('.direct-chat-timestamp').text().trim();
                 const text = $(el).find('.direct-chat-text').text().trim();
 
@@ -237,8 +232,8 @@ pull-right').text().trim();
                 heager.push({
                     header: v.from,
                     title: v.text,
-                    id: ${usedPrefix + command} كود ${v.text},
-                    description: الوقت: ${v.time}
+                    id: `${usedPrefix + command} كود ${v.text}`,
+                    description: `الوقت: ${v.time}`
                 });
             }
 
@@ -273,7 +268,7 @@ pull-right').text().trim();
             },
             {
               name: 'quick_reply',
-              buttonParamsJson: {"display_text": "الرئيسية", "id": "${usedPrefix + command}"}
+              buttonParamsJson: `{"display_text": "الرئيسية", "id": "${usedPrefix + command}"}`
             }
           ],
           messageParamsJson: "",
@@ -288,7 +283,7 @@ pull-right').text().trim();
 
         } catch (error) {
             console.log(error);
-            return conn.sendButton(m.chat, ╮────────────────────────╭ـ\n│ حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا.\n╯────────────────────────╰ـ , '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['حاول مجددا',`${usedPrefix + command} رسائل ${additionalLink}`]], null, null, m);
+            return conn.sendButton(m.chat, `╮────────────────────────╭ـ\n│ حدث خطأ أثناء جلب البيانات. حاول مرة أخرى لاحقًا.\n╯────────────────────────╰ـ `, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['حاول مجددا',`${usedPrefix + command} رسائل ${additionalLink}`]], null, null, m);
         }
         
         
@@ -299,7 +294,7 @@ pull-right').text().trim();
 
 let code = additionalLink.split(" ")[1];
 
- const caption = ╮────────────────────────╭ـ\n│ *كود التحقق :*${additionalLink}\n╯────────────────────────╰ـ\n;
+ const caption = `╮────────────────────────╭ـ\n│ *كود التحقق :*${additionalLink}\n╯────────────────────────╰ـ\n`;
 
 conn.sendButton(m.chat, caption, '𝑺𝐻𝐴𝑊𝐴𝑍𝐴-𝐵𝛩𝑇', pp, [['الرئيسية',`${usedPrefix + command}`]], null, null, m);
     }
