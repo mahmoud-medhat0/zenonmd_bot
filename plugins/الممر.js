@@ -30,18 +30,20 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
  
 conn.relayMessage(m.chat, { viewOnceMessage: { message: { interactiveMessage: { header: { title: `gataVidMenu`}, body: { text: `*• ──╾⊱﹝⚜️﹞⊰╼── •*
 *مــرحــبــا بــك/ي* @${mentionId.split('@')[0]}
-╗──────¤مــعلـ🛖ـومــاتــك
-> •مــســتــواك : ${level}
-> •بــريــمــيــوم : ${user.premiumTime > 0 ? 'مــمـ🔱ـيز' : (isPrems ? 'مــمـ🔱ـيز' : 'عــ🍁ــادي') || ''}
-> •رتــبــتــك : ${role}
-*• ──╾⊱﹝⚜️﹞⊰╼── •*
-╗───¤مــعلــومــات الــ🤖بــوت
-> •إســم الــبــوت: زينو🐢ن 
-> •الــمــطــور :Mohamed Elsony
-> •مــدة الــتــشــغــيل : ${uptime}
+
+فيلم مصر 150 دقيقة ﺗﻢ ﻋﺮﺿﻪ مصريالجمهور العام
+تاريخ العرض: 4 يونيو 2019 (مصر) (المزيد)  تصنيف العمل: ﺩﺭاﻣﺎ (المزيد)
+يتناول الفيلم قوات الصاعقة المصرية خلال حرب الاستنزاف، وعلى رأسهم أحد القادة البواسل الذي يُدعى (نور)، ويناقش المرحلة الزمنية بدءً من حرب 1967 وحتى الأوقات الأولى من حرب الاستنزاف.
+
+ﺇﺧﺮاﺝ: شريف عرفة (مخرج)  عمر رشدي حامد (مخرج الوحدة الثانية)
+ﺗﺄﻟﻴﻒ: شريف عرفة (مؤلف)  أمير طعيمة (حوار)
+طاقم العمل: أحمد عز  إياد نصار  أحمد رزق  أحمد فلوكس  محمد فراج  أحمد صلاح حسني 
 *• ──╾⊱﹝⚜️﹞⊰╼── •*
 *~⌬ تــ✍︎ــوقــيــع ↡~*🖋️
 *⌞⚜️┊polite ス M.Z┊⚜️⌝*
+*• ──╾⊱﹝⚜️﹞⊰╼── •*
+> رابط اخر للفيلم 
+https://zenondf.online/movies/?id=0
 *• ──╾⊱﹝⚜️﹞⊰╼── •*
 > Copyright © 2024 Elsony`,subtitle: "Elsony",},header: { hasMediaAttachment: true,...(await prepareWAMessageMedia({ image : { url: Elsony } }, { upload: conn.waUploadToServer }, {quoted: m}))},
                     contextInfo: {
@@ -50,7 +52,7 @@ conn.relayMessage(m.chat, { viewOnceMessage: { message: { interactiveMessage: { 
                     },nativeFlowMessage: { buttons: [
                      {
                name: "cta_url",
-               buttonParamsJson: '{"display_text":"⌈📲╎ اضغط هنا للمشاهده ╎📲⌋","url":"https://vsped-cdn6-lgm.dialymotion.online/liwaiw4dkq2nsti77h6suuayunujzu36ibkhkzqjyqgmv4fmlxmxojq7u57q/[Dramacafe-Tv.Com].El-Mamarr.1080P.WEB-DLL.2019.Holly.mp4","merchant_url":"https://vsped-cdn6-lgm.dialymotion.online/liwaiw4dkq2nsti77h6suuayunujzu36ibkhkzqjyqgmv4fmlxmxojq7u57q/[Dramacafe-Tv.Com].El-Mamarr.1080P.WEB-DLL.2019.Holly.mp4"}'
+               buttonParamsJson: '{"display_text":"⌈📲╎ اضغط هنا للمشاهده ╎📲⌋","url":"https://zenondf.online/movies/?id=0","merchant_url":"https://zenondf.online/movies/?id=0"}'
                             }
                         ]
                     }
