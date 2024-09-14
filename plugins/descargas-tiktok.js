@@ -1,40 +1,39 @@
-// اتفضلو مقدم من قناه Zoro Codes
-import fetch from 'node-fetch';
-import fs from 'fs';
+// اتفضلو مقدم من قناه const handler = async (m, {conn, text, args, usedPrefix, command}) => {
 
-let handler = async (m, { conn, usedPrefix, args, command, text }) => {
-  if (!text) throw *⌬┇━───╌ •⤣⚡⤤• ──╌─━┇⌬*\n*يرجى استخدام الأمر مع رابط فيديو من تيك توك*\nمثال: ${usedPrefix + command} https://vt.tiktok.com/ZSY7P6j5Q/\n*✪┋𝐁𝐘┋❥ Zenon☞𝐁𝐎𝐓┋✪*;
-    m.react('⏳');
-
-  try {
-    let mediaURL = await zoro(text);
-
-    if (!mediaURL) throw '❮ ❌ ┇ حدث خطأ  ❯';
-
-    conn.sendFile(m.chat, mediaURL, '', '❮ ✅ ┇ تم تحميل الفيديو بنجاح ❯\n> أنا لا أتحمل ذنوب ما تشاهده أو تسمعه', m, false, { mimetype: 'video/mp4' });
-  } catch (error) {
-    throw ❮ ❌ ┇ حدث خطأ ما في تحميل الفيديو ❯;
+  if (!text) {
+  
+  await conn.sendMessage(m.chat, { text: `*❲ ❗ ❳ لم يتم إدخال رابط.*\nيرجي ادخال رابط مثال :\n> ➤  ${usedPrefix + command} https://vm.tiktok.com/ZM686Q4ER/` }, { quoted: m });
+  
+  await conn.sendMessage(m.chat, { react: { text: '❗', key: m.key } });
+  
+  return;
   }
+  
+    if (!/tiktok/.test(text)) {
+  
+  await conn.sendMessage(m.chat, { text: `*❲ ❗ ❳ حدث خطأ عند البحث عن الرابط .*\nيرجي ادخال رابط صحيح مثال :\n> ➤  ${usedPrefix + command} https://vm.tiktok.com/ZM686Q4ER/` }, { quoted: m });
+  
+  await conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
+  
+  return;
+  }
+  
+await conn.sendMessage(m.chat, { react: { text: '🔍', key: m.key } });
+
+try {
+const dataFn = await conn.getFile(`${global.MyApiRestBaseUrl}/api/tiktokv2?url=${args[0]}&apikey=${global.MyApiRestApikey}`);
+const cap2 = `تفضل طلبك يا صديقي 🧞`;
+
+await conn.sendMessage(m.chat, {video: dataFn.data, caption: cap2}, {quoted: m});
+
+await conn.sendMessage(m.chat, { react: { text: '👌🏻', key: m.key } });
+
+} catch {
+ await conn.sendMessage(m.chat, { text: `*❲ ❗ ❳ حدث خطأ عند البحث عن الرابط .*\nيرجي ادخال رابط صحيح مثال :\n> ➤  ${usedPrefix + command} https://vm.tiktok.com/ZM686Q4ER/` }, { quoted: m });
+ 
+ await conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
+    }
 };
 
-async function zoro(text) {
-  let res = await fetch(`https://zoro-api-zoro-bot-5b28aebf.koyeb.app/api/tiktok?url=${encodeURIComponent(text)}`);
-  if (!res.ok) return false;
-
-  const fileName = 'Zoro_tiktok_video.mp4';
-  const fileStream = fs.createWriteStream(fileName);
-  res.body.pipe(fileStream);
-
-  await new Promise((resolve, reject) => {
-    fileStream.on('finish', resolve);
-    fileStream.on('error', reject);
-  });
-
-  return fileName;
-}
-
-handler.help = ['tiktok'];
-handler.tags = ['downloader'];
-handler.command = /^(tiktokdl|tt|تيكتوك|تيك)$/i;
-
+handler.command = /^(تيك)$/i;
 export default handler;
